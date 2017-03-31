@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const P = require('bluebird');
-const config = require('../config');
-const { saveInDB } = require('../utils/db');
-const youtubeParser = require('../utils/youtube-parser');
-const { sendMovieSocket } = require('../utils/wss');
+const config = require('../../config');
+const { saveInDB } = require('../../utils/db');
+const youtubeParser = require('../../utils/youtube-parser');
+const { sendMovieSocket } = require('../../utils/wss');
 
 router
   .route('/')

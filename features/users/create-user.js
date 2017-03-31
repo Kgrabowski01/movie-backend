@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const P = require('bluebird');
-const config = require('../config');
-const { findInDB , saveInDB } = require('../utils/db');
-const createToken = require('../utils/generate-token');
+const config = require('../../config');
+const { findInDB , saveInDB } = require('../../utils/db');
+const createToken = require('../../utils/generate-token');
 
 router
   .route('/')
