@@ -10,7 +10,7 @@ const middleware = (req, res, next) => {
     movie:  `https://www.youtube.com/embed/${movieId}?controls=1`,
     username: req.body.movie.username,
   }
-  return new P((resolve, reject) => resolve(saveInDB('movies',movieUrl)))
+  return P.resolve(saveInDB('movies',movieUrl))
     .then(result => {
       sendMovieSocket(movieUrl);
       return true;
