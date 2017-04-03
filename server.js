@@ -1,6 +1,6 @@
 const express = require('express')
 const bodyParser= require('body-parser')
-const MongoClient = require('mongodb').MongoClient;
+const errorHandler = require('./utils/error-handler').middleware;
 const WebSocketServer = require('websocket').server;
 const server = require('http').createServer();
 const config = require('./config');
@@ -21,6 +21,7 @@ app.use((req, res, next) => {
 });
 app.set('superSecret', config.secret)
 app.use('/', apiRouter)
+app.use(errorHandler);
 server.on('request', app);
 wsServer.on('request', wss)
 
