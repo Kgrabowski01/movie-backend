@@ -1,4 +1,3 @@
-const P = require('bluebird');
 const config = require('../../config');
 const { saveInDB } = require('../../utils/db');
 const youtubeParser = require('../../utils/youtube-parser');
@@ -10,7 +9,7 @@ const middleware = (req, res, next) => {
     movie:  `https://www.youtube.com/embed/${movieId}?controls=1`,
     username: req.body.movie.username,
   }
-  return P.resolve(saveInDB('movies',movieUrl))
+  saveInDB('movies',movieUrl)
     .then(result => {
       sendMovieSocket(movieUrl);
       return true;
